@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FoodieGram</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+   
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>AOS.init();</script>
+  <header>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="index.html">
+            <img src="images/logo.jpg" alt="FoodieGram Logo">
+            <span>FoodieGram</span>
+            </a>
+          </div>
+          
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="public/recipe.html">Recipe</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="main-content">
+    <div class="text-content" data-aos="fade-up">
+      <h1>Welcome to FoodieGram-</h1>
+      <h2>Cook Smarter, Eat Better!</h2><br>
+      <p>"Your go-to spot for discovering new recipes and cooking inspiration. Find personalized recommendations and join a community of food lovers!".</p>
+      <a href="public/recipe.html" class="cta-button">Get Started</a>
+    </div>
+    <div class="image-container">
+      <img src="images/spicebottle.jpg" alt="Delicious Food">
+    </div>
+    </div>
+    
+    <div class="recipe-gallery">
+      <h2>Popular Recipes</h2>
+      <div class="recipe-cards">
+    
+        <!-- Recipe Card 1 -->
+        <div class="recipe-card" onclick="openModal('modal1')">
+          <h3>Panner Tikka</h3>
+          <img src="images/Paneer Tikka.jpeg" alt="Paneer Tikka"><br>
+          <p>Marinated paneer cubes grilled to perfection and served with fresh salad</p>
+          
+        </div>
+    
+        <!-- Recipe Card 2-->
+        <div class="recipe-card" onclick="openModal('modal2')">
+          <h3>Chickpea Sandwich</h3>
+          <img src="images/sandwich.jpg" alt="Chickpea Sandwich"><br>
+          <p>A protein-rich, creamy chickpea sandwich with fresh veggies and bold spices </p>
+          
+        </div>
+
+        <!-- Recipe Card 3-->
+        <div class="recipe-card" onclick="openModal('modal3')">
+          <h3>Vegetable Khichdi</h3>
+          <img src="images/vegetable khichdi.jpeg" alt="Vegetable Khichdi"><br>
+          <p>A wholesome one-pot meal made with rice, lentils, and vegetables.</p>
+          
+        </div>
+
+        <!-- Recipe Card 4 -->
+        <div class="recipe-card" onclick="openModal('modal4')">
+          <h3>Egg Cutlets</h3>
+          <img src="images/egg cutlets.jpg" alt="Egg Cutlets"><br>
+          <p>Mashed eggs and potatoes spiced, shaped into patties, and fried crispy.</p>
+          
+        </div>
+
+
+        <!-- Recipe Card 5 -->
+        <div class="recipe-card" onclick="openModal('modal5')">
+          <h3>Kokum Sharbat</h3>
+          <img src="images/kokum sharbat.jpg" alt="Kokum Sharbat"><br>
+          <p>A refreshing and nutritious drink made from kokum fruit</p>
+          
+        </div>
+
+        <!-- Recipe Card 6 -->
+        <div class="recipe-card" onclick="openModal('modal6')">
+          <h3>Oreo Milkshake</h3>
+          <img src="images/oreo milkshake.jpg" alt="Oreo Milkshake"><br>
+          <p>A creamy Oreo milkshake with rich chocolate flavor and smooth texture </p>
+          
+        </div>
+      </div>
+    </div>
+
+     <!-- Modals for Step-by-Step Instructions -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+        <h2>Paneer Tikka - Step-by-Step</h2>
+        <ol>
+          <li>Mix yogurt with spices and lemon juice.</li>
+          <li>Marinate paneer and veggies for 30 mins.</li>
+          <li>Skewer paneer and grill or bake until golden.</li>
+          <li>Serve hot with mint chutney.</li>
+        </ol><br>
+        <strong><h3>Ingredients:</h3></strong><p>Paneer, Capsicum, Tomato, Onion</p><br>
+        <strong><h3>Nutrients:</h3></strong> <p>Protein: 18g, Calories: 320, Fat: 22g</p>
+      </div>
+    </div>
+
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal2')">&times;</span>
+        <h2>Chickpea Sandwich - Step-by-Step</h2>
+        <ol>
+          <li>Mash boiled chickpeas with yogurt and spices.</li>
+          <li>Add chopped tomatoes and grated cheese.</li>
+          <li>Spread on bread slices and toast lightly.</li>
+          <li>Serve with ketchup or chutney.</li>
+        </ol><br>
+        <strong><h3>Ingredients:</h3></strong><p>Chickpea, Yogurt, Tomato, Cheese, Bread</p><br>
+        <strong><h3>Nutrients:</h3></strong><p> Carbohydrates: 40g, Calories: 300, Fiber: 8g, Protein: 14g</p>
+      </div>
+    </div>
+
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal3')">&times;</span>
+        <h2>Vegetable Khichdi - Step-by-Step</h2>
+        <ol>
+          <li>Wash rice and lentils.</li>
+          <li>Chop and add vegetables.</li>
+          <li>Pressure cook with salt and spices.</li>
+          <li>Serve hot with ghee or pickle.</li>
+        </ol><br>
+        <strong><h3>Ingredients:</h3></strong><p>rice, lentils, vegetables</p><br>
+        <strong><h3>Nutrients:</h3></strong> <p>Carbs: 45g, Calories: 300, Fiber: 5g, Protein: 10g</p>
+      </div>
+    </div>
+
+    <div id="modal4" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal4')">&times;</span>
+        <h2>Egg Cutlets - Step-by-Step</h2>
+        <ol>
+          <li>Boil and mash eggs with potato and spices.</li>
+          <li>Shape into patties and coat with breadcrumbs.</li>
+          <li>Shallow fry until golden and crispy.</li>
+          <li>Serve with ketchup or dip.</li>
+        </ol><br>
+        <strong><h3>Ingredients:</h3></strong><p>Eggs, Potato, BreadCrumbs, Spices</p><br>
+        <strong><h3>Nutrients:</h3></strong> <p>Carbs: 20g, Calories: 300, Protein: 10g</p>
+      </div>
+    </div>
+
+    <div id="modal5" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal5')">&times;</span>
+        <h2>Kokum Sharbat - Step-by-Step</h2>
+        <ol>
+          <li>Mix kokum syrup with cold water.</li>
+          <li>Add lemon juice, sugar, and black salt.</li>
+          <li>Stir well and chill.</li>
+          <li>Serve with ice cubes.</li>
+        </ol><br>
+        <strong><h3>Ingredients:</h3></strong><p>Kokum Syrup, Sugar, Black Salt, Lemon juice</p><br>
+        <strong><h3>Nutrients:</h3></strong><p>Calories: 50, Fiber: 1g, Vitamin C: !0-15%</p>
+      </div>
+    </div>
+
+    <div id="modal6" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal6')">&times;</span>
+        <h2>Oreo Milkshake - Step-by-Step</h2>
+        <ol>
+          <li>Blend Oreo cookies with milk and sugar.</li>
+          <li>Add chocolate syrup if desired.</li>
+          <li>Blend until smooth and creamy.</li>
+          <li>Serve chilled with a straw.</li>
+        </ol><br>
+        <strong><h3>Ingredients:</h3></strong><p>Oreo Cookies, Milk, Sugar, Chocolate</p><br>
+        <strong><h3>Nutrients:</h3></strong> <p>Carbohydrates: 45g, Calories: 350, Fiber: 2g</p>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+      }
+
+      function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        const modals = document.querySelectorAll(".modal");
+        modals.forEach(modal => {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        });
+      };
+    </script>
+
+  </body>
+  </html>
+
+    <div class="info-section-container">
+    <section class="info-section">
+      <h2>Why Choose FoodieGram?</h2>
+      <ul>
+        <li>🍽️ Personalized recipe suggestions based on your taste and preferences.</li>
+        <li>⏱️ Save time by discovering quick and easy recipes.</li>
+        <li>🌱 Find healthy options and dietary-specific meals.</li>
+        <li>👨‍🍳 Share your own creations with the community.</li>
+      </ul>
+    </section>
+    <section class="info-section">
+      <h2>How It Works</h2>
+      <ol>
+        <li>Create your FoodieGram account.</li>
+        <li>Enter your available ingredients.</li>
+        <li>Get recipe recommendations instantly.</li>
+        <li>Save, cook, and share your favorites!</li>
+      </ol>
+    </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 FoodieGram. All rights reserved.</p>
+  </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+</body>
+</html>

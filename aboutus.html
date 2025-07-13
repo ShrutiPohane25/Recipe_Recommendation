@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - FoodieGram</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #fffaf0;
+      color: #333;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #9e2a2b;
+      padding: 15px 30px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .logo a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: white;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 40px;
+      width: 40px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-links li a:hover {
+      color: #ffe0b2;
+    }
+
+    .main-section {
+      padding: 120px 30px 60px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .main-section h1 {
+      font-size: 2.5rem;
+      color: #9e2a2b;
+      margin-bottom: 20px;
+    }
+
+    .main-section p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 40px;
+    }
+
+    .team-section {
+      text-align: center;
+    }
+
+    .team-section h2 {
+      font-size: 2rem;
+      color: #9e2a2b;
+      margin-bottom: 30px;
+    }
+
+    .team-members {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .member {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 200px;
+    }
+
+    .member img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    .member h3 {
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    .feedback-section {
+  padding: 40px 30px;
+  background-color: #fff8f0;
+  max-width: 800px;
+  margin: 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+
+}
+
+.feedback-section h2 {
+  color: #9e2a2b;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.feedback-section .form-group {
+  margin-bottom: 1rem;
+}
+
+.feedback-section label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.feedback-section input,
+.feedback-section select,
+.feedback-section textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.feedback-display {
+  margin-top: 2rem;
+}
+
+.feedback-entry {
+  background-color: #fff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.feedback-entry h4 {
+  margin-bottom: 0.5rem;
+  color: #9e2a2b;
+}
+
+.rating-stars {
+  color: #ffc107;
+}
+
+
+    .footer {
+      background-color: #9e2a2b;
+      text-align: center;
+      padding: 15px 0;
+      color: white;
+      font-size: 0.95rem;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html">
+          <img src="images/logo.jpg" alt="FoodieGram Logo">
+          <span>FoodieGram</span>
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="public/recipe.html">Recipe</a></li>
+        <li><a href="about.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="main-section">
+    <h1>About FoodieGram</h1>
+    <p>
+      FoodieGram is your personalized culinary companion. We are dedicated to providing recipe recommendations tailored to your tastes, helping you discover, cook, and share delightful dishes with ease. Our mission is to simplify cooking and empower home chefs to be more creative and efficient in the kitchen.
+    </p>
+
+    <div class="team-section">
+      <h2>Meet Our Team</h2>
+      <div class="team-members">
+        <div class="member">
+          <h3>Shruti Pohane</h3>
+        </div>
+        
+      </div>
+    </div>
+
+    <section class="feedback-section">
+        <h2>We value your feedback!</h2>
+        <form id="feedback-form">
+          <div class="form-group">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" required>
+          </div>
+      
+          <div class="form-group">
+            <label for="rating">Rating:</label>
+            <select id="rating" required>
+              <option value="">Select Rating</option>
+              <option value="5">★★★★★ (5)</option>
+              <option value="4">★★★★☆ (4)</option>
+              <option value="3">★★★☆☆ (3)</option>
+              <option value="2">★★☆☆☆ (2)</option>
+              <option value="1">★☆☆☆☆ (1)</option>
+            </select>
+          </div>
+      
+          <div class="form-group">
+            <label for="comment">Feedback:</label>
+            <textarea id="comment" rows="4" required></textarea>
+          </div>
+      
+          <button type="submit" class="cta-button">Submit Feedback</button>
+        </form>
+      
+        <div id="feedback-display" class="feedback-display">
+          <!-- Feedback will appear here -->
+        </div>
+      </section>
+      
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 FoodieGram. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const feedbackForm = document.getElementById('feedback-form');
+    const feedbackDisplay = document.getElementById('feedback-display');
+  
+    feedbackForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+  
+      const name = document.getElementById('name').value;
+      const rating = document.getElementById('rating').value;
+      const comment = document.getElementById('comment').value;
+  
+      const stars = '★'.repeat(rating) + '☆'.repeat(5 - rating);
+  
+      const feedbackHTML = `
+        <div class="feedback-entry">
+          <h4>${name}</h4>
+          <div class="rating-stars">${stars}</div>
+          <p>${comment}</p>
+        </div>
+      `;
+  
+      feedbackDisplay.innerHTML += feedbackHTML;
+      feedbackForm.reset();
+    });
+  </script>
+  
+</body>
+</html>

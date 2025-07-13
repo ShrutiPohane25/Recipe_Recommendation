@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Page Title - FoodieGram</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+<style>
+  /* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Body */
+body {
+  background-color: #fffaf0;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #9e2a2b;
+  padding: 15px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #ffe0b2;
+}
+
+/* Main Content */
+.main-content {
+  padding: 100px 30px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ------------------- */
+/*   Enhanced Search   */
+/* ------------------- */
+.search-container {
+  display: flex;
+  width: 100%;
+  max-width: 420px;
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.search-container input {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  font-size: 16px;
+  color: #333;
+}
+
+.search-container input::placeholder {
+  color: #aaa;
+}
+
+.search-container input:focus {
+  outline: none;
+  box-shadow: inset 0 0 0 2px #9e2a2b;
+}
+
+.search-container button {
+  padding: 0 24px;
+  background-color: #9e2a2b;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.search-container button:hover {
+  background-color: #b73233;
+}
+
+/* Recipe Results Grid */
+#recipeResults {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+/* Footer */
+.footer {
+  background-color: #9e2a2b;
+  text-align: center;
+  padding: 15px 0;
+  color: white;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+/* CTA Button */
+.cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 32px;
+  background-color: #9e2a2b;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.cta-button:hover {
+  background-color: #b73233;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Recipe Card */
+.recipe-gallery {
+  padding: 2rem;
+  background-color: #fff6f0d4;
+}
+
+.recipe-gallery h2 {
+  font-size: 2rem;
+  color: #9e2a2b;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.recipe-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.recipe-card {
+  background-color: #ffffffce;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  max-width: 250px;
+  text-align: center;
+}
+
+.recipe-card:hover {
+  transform: scale(1.03);
+}
+
+.recipe-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.recipe-card h3 {
+  margin: 0.8rem 0 0.5rem;
+  color: #b22222;
+}
+
+.recipe-card p {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+ /* Modal styling */
+ .modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: auto;
+  padding: 20px;
+  width: 70%;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+.modal-content p {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: red;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+</style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="../index.html">
+          <img src="../images/logo.jpg" alt="FoodieGram Logo">
+          <span>FoodieGram</span>
+        </a>
+      </div>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="recipe.html">Recipe</a></li>
+        <li><a href="../aboutus.html">About Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Page specific content goes here -->
+  <main class="main-content">
+    <h2>Search Recipes by Ingredient</h2>
+    <!-- Updated, centered & styled search bar -->
+    <div class="search-container">
+      <input type="text" id="ingredientInput" placeholder="e.g. tomato" />
+      <button onclick="searchRecipes()">Search</button>
+    </div>
+
+    <!-- Loader spinner (initially hidden) -->
+    <div id="loader" style="display:none; margin-top: 20px; text-align: center;">
+      <div class="spinner" style="display:inline-block;width:40px;height:40px;border:4px solid #ccc;border-top-color:#9e2a2b;border-radius:50%;animation:spin 1s linear infinite;"></div>
+    </div>
+
+
+    <div id="recipeResults"></div>
+    <script src="script.js"></script>
+  </main>
+
+  <!-- Recipe Modal -->
+  <div id="recipeModal"
+       onclick="if(event.target.id==='recipeModal') closeModal()"
+       style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+       background: rgba(0,0,0,0.6); z-index: 9999; justify-content: center; align-items: center;">
+    <div style="background: #fff; padding: 20px; border-radius: 12px; max-width: 600px; max-height: 80vh; overflow-y: auto;">
+      <h2 id="modalTitle" style="margin-bottom: 10px; color: #9e2a2b;"></h2>
+      <p><strong>📋 Summary:</strong></p>
+      <p id="modalSummary"></p>
+      <p><strong>🧑‍🍳 Instructions:</strong></p>
+      <p id="modalInstructions"></p>
+      <button onclick="closeRecipeModal()"
+        style="margin-top:15px;padding:8px 16px;background:#9e2a2b;color:#fff;border:none;border-radius:6px;cursor:pointer;">
+        Close
+      </button>
+    </div>
+  </div>
+
+   <div class="recipe-gallery">
+      <h2>Popular Recipes</h2>
+      <div class="recipe-cards">
+    
+        <!-- Recipe Card 1 -->
+        <div class="recipe-card" onclick="openModal('modal1')">
+          <h3>Panner Tikka</h3>
+          <img src="../images/Paneer Tikka.jpeg" alt="Paneer Tikka"><br>
+          <p>Marinated paneer cubes grilled to perfection and served with fresh salad</p>
+          
+        </div>
+    
+        <!-- Recipe Card 2-->
+        <div class="recipe-card" onclick="openModal('modal2')">
+          <h3>Chickpea Sandwich</h3>
+          <img src="../images/sandwich.jpg" alt="Chickpea Sandwich"><br>
+          <p>A protein-rich, creamy chickpea sandwich with fresh veggies and bold spices </p>
+          
+        </div>
+
+        <!-- Recipe Card 3-->
+        <div class="recipe-card" onclick="openModal('modal3')">
+          <h3>Vegetable Khichdi</h3>
+          <img src="../images/vegetable khichdi.jpeg" alt="Vegetable Khichdi"><br>
+          <p>A wholesome one-pot meal made with rice, lentils, and vegetables.</p>
+          
+        </div>
+
+        <!-- Recipe Card 4 -->
+        <div class="recipe-card" onclick="openModal('modal4')">
+          <h3>Egg Cutlets</h3>
+          <img src="../images/egg cutlets.jpg" alt="Egg Cutlets"><br>
+          <p>Mashed eggs and potatoes spiced, shaped into patties, and fried crispy.</p>
+          
+        </div>
+
+
+        <!-- Recipe Card 5 -->
+        <div class="recipe-card" onclick="openModal('modal5')">
+          <h3>Kokum Sharbat</h3>
+          <img src="../images/kokum sharbat.jpg" alt="Kokum Sharbat"><br>
+          <p>A refreshing and nutritious drink made from kokum fruit</p>
+          
+        </div>
+
+        <!-- Recipe Card 6 -->
+        <div class="recipe-card" onclick="openModal('modal6')">
+          <h3>Oreo Milkshake</h3>
+          <img src="../images/oreo milkshake.jpg" alt="Oreo Milkshake"><br>
+          <p>A creamy Oreo milkshake with rich chocolate flavor and smooth texture </p>
+          
+        </div>
+      </div>
+    </div>
+
+     <!-- Modals for Step-by-Step Instructions -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+        <h2>Paneer Tikka - Step-by-Step</h2>
+        <ol>
+          <li>Mix yogurt with spices and lemon juice.</li>
+          <li>Marinate paneer and veggies for 30 mins.</li>
+          <li>Skewer paneer and grill or bake until golden.</li>
+          <li>Serve hot with mint chutney.</li>
+        </ol><br>
+        <strong><h3>Ingredients:</h3></strong><p>Paneer, Capsicum, Tomato, Onion</p><br>
+        <strong><h3>Nutrients:</h3></strong> <p>Protein: 18g, Calories: 320, Fat: 22g</p>
+      </div>
+    </div>
+
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal2')">&times;</span>
+        <h2>Chickpea Sandwich - Step-by-Step</h2>
+        <ol>
+          <li>Mash boiled chickpeas with yogurt and spices.</li>
+          <li>Add chopped tomatoes and grated cheese.</li>
+          <li>Spread on bread slices and toast lightly.</li>
+          <li>Serve with ketchup or chutney.</li>
+        </ol><br>
+        <strong><h3>Ingredients:</h3></strong><p>Chickpea, Yogurt, Tomato, Cheese, Bread</p><br>
+        <strong><h3>Nutrients:</h3></strong><p> Carbohydrates: 40g, Calories: 300, Fiber: 8g, Protein: 14g</p>
+      </div>
+    </div>
+
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal3')">&times;</span>
+        <h2>Vegetable Khichdi - Step-by-Step</h2>
+        <ol>
+          <li>Wash rice and lentils.</li>
+          <li>Chop and add vegetables.</li>
+          <li>Pressure cook with salt and spices.</li>
+          <li>Serve hot with ghee or pickle.</li>
+        </ol><br>
+        <strong><h3>Ingredients:</h3></strong><p>rice, lentils, vegetables</p><br>
+        <strong><h3>Nutrients:</h3></strong> <p>Carbs: 45g, Calories: 300, Fiber: 5g, Protein: 10g</p>
+      </div>
+    </div>
+
+    <div id="modal4" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal4')">&times;</span>
+        <h2>Egg Cutlets - Step-by-Step</h2>
+        <ol>
+          <li>Boil and mash eggs with potato and spices.</li>
+          <li>Shape into patties and coat with breadcrumbs.</li>
+          <li>Shallow fry until golden and crispy.</li>
+          <li>Serve with ketchup or dip.</li>
+        </ol><br>
+        <strong><h3>Ingredients:</h3></strong><p>Eggs, Potato, BreadCrumbs, Spices</p><br>
+        <strong><h3>Nutrients:</h3></strong> <p>Carbs: 20g, Calories: 300, Protein: 10g</p>
+      </div>
+    </div>
+
+    <div id="modal5" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal5')">&times;</span>
+        <h2>Kokum Sharbat - Step-by-Step</h2>
+        <ol>
+          <li>Mix kokum syrup with cold water.</li>
+          <li>Add lemon juice, sugar, and black salt.</li>
+          <li>Stir well and chill.</li>
+          <li>Serve with ice cubes.</li>
+        </ol><br>
+        <strong><h3>Ingredients:</h3></strong><p>Kokum Syrup, Sugar, Black Salt, Lemon juice</p><br>
+        <strong><h3>Nutrients:</h3></strong><p>Calories: 50, Fiber: 1g, Vitamin C: !0-15%</p>
+      </div>
+    </div>
+
+    <div id="modal6" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('modal6')">&times;</span>
+        <h2>Oreo Milkshake - Step-by-Step</h2>
+        <ol>
+          <li>Blend Oreo cookies with milk and sugar.</li>
+          <li>Add chocolate syrup if desired.</li>
+          <li>Blend until smooth and creamy.</li>
+          <li>Serve chilled with a straw.</li>
+        </ol><br>
+        <strong><h3>Ingredients:</h3></strong><p>Oreo Cookies, Milk, Sugar, Chocolate</p><br>
+        <strong><h3>Nutrients:</h3></strong> <p>Carbohydrates: 45g, Calories: 350, Fiber: 2g</p>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      function openModal(modalId) {
+        document.getElementById(modalId).style.display = "block";
+      }
+
+      function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        const modals = document.querySelectorAll(".modal");
+        modals.forEach(modal => {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        });
+      };
+    </script>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2025 FoodieGram. All rights reserved.</p>
+  </footer>
+</body>
+</html>
